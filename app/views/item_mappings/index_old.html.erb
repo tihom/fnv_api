@@ -1,0 +1,41 @@
+<h1>Listing item_mappings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Item variety</th>
+      <th>Unit</th>
+      <th>Big basket url</th>
+      <th>Hopcom name</th>
+      <th>Kmv name</th>
+      <th>Remark</th>
+      <th>Error</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_mappings.each do |item_mapping| %>
+      <tr>
+        <td><%= item_mapping.item_id %></td>
+        <td><%= item_mapping.item_variety_id %></td>
+        <td><%= item_mapping.unit_id %></td>
+        <td><%= item_mapping.big_basket_url %></td>
+        <td><%= item_mapping.hopcom_name %></td>
+        <td><%= item_mapping.kmv_name %></td>
+        <td><%= item_mapping.remark %></td>
+        <td><%= item_mapping.error %></td>
+        <td><%= link_to 'Show', item_mapping %></td>
+        <td><%= link_to 'Edit', edit_item_mapping_path(item_mapping) %></td>
+        <td><%= link_to 'Destroy', item_mapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item mapping', new_item_mapping_path %>

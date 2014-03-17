@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_id: 1
+  item_variety_id: 1
+  unit_id: 1
+  big_basket_url: MyString
+  hopcom_name: MyString
+  kmv_name: MyString
+  remark: MyString
+  error: MyString
+
+two:
+  item_id: 1
+  item_variety_id: 1
+  unit_id: 1
+  big_basket_url: MyString
+  hopcom_name: MyString
+  kmv_name: MyString
+  remark: MyString
+  error: MyString

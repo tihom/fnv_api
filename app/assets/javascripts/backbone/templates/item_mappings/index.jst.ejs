@@ -1,0 +1,28 @@
+<div id="contents">
+        <div id="supplier-items-table-container">
+        <!-- Mappings for <%= supplier_name %> :    -->
+        <table id="supplier-items-table" data-supplier-id="115">
+            <tbody>
+                <tr>
+                    <th class="supplier-items-header-name">Name</th>
+                    <th class="supplier-items-header-unit">Unit</th>
+                    <th class="supplier-items-header-variety">Variety</th>     
+                    <th class="supplier-items-header-variety">Latest Price</th>                    
+                    <th class="supplier-items-header-price"><%= identifier_name %></th>
+                    <th class="supplier-items-header-max-qty">Unit <br> Conv.</th>
+                    <th class="supplier-items-header-edit"></th>
+                </tr>
+            </tbody>
+        </table>
+        <div id="add-save-more-items">
+            <div id="add-new-items" class="grey-btn" style="display: block;">Add Item</div>
+            <% if(typeof items_list_url !== 'undefined') { %>
+                <div class="grey-btn" style="display: block;"><a href="<%= items_list_url %>" target="_blank"><%= id %> Item List</a></div>
+            <% } %>    
+        </div>
+    </div>
+</div>
+        
+
+
+<!-- <a href="#new">Add Item</a> -->

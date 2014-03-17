@@ -1,0 +1,28 @@
+
+<div id="home-tabs">
+	<img src="/assets/logo.png" id="aalgro-logo" />
+	<% @crawlers.each do |c| %>
+		<a class="inactive" href="#<%=c[:id]%>/mappings" data-id="<%=c[:id]%>"><%=c[:supplier].supplier_name%></a>
+	<% end %>
+</div>
+
+<div id="posts"></div>
+
+<script>
+	  // Bootstrap models that are used frequently  on this page
+      FnvApi.crawlers = new FnvApi.Collections.Crawlers(<%= @crawlers.to_json.html_safe %>);
+
+      FnvApi.items = new FnvApi.Collections.Items;
+      FnvApi.items.fetch();
+
+      FnvApi.units = new FnvApi.Collections.Units;
+      FnvApi.units.fetch();
+
+      FnvApi.item_varieties = new FnvApi.Collections.ItemVarieties;
+      FnvApi.item_varieties.fetch();
+</script>
+
+<script type="text/javascript">
+    router = new FnvApi.Routers.ItemMappingsRouter();
+    Backbone.history.start();
+</script>

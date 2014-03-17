@@ -1,4 +1,22 @@
 FnvApi::Application.routes.draw do
+  
+  resources :item_mappings 
+  resources :crawlers do
+    member do 
+      get "items_list"
+    end
+  end
+
+  resources :items
+
+  resources :units
+
+  resources :item_varieties
+
+ get "big_basket_api/current_price" => "big_basket_api#current_price"
+
+ get "kmv_api/price_report" => "kmv_api#price_report"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

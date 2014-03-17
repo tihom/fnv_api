@@ -1,0 +1,49 @@
+<%= form_for(@item_mapping) do |f| %>
+  <% if @item_mapping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_mapping.errors.count, "error") %> prohibited this item_mapping from being saved:</h2>
+
+      <ul>
+      <% @item_mapping.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item_id %><br>
+    <%= f.number_field :item_id %>
+  </div>
+  <div class="field">
+    <%= f.label :item_variety_id %><br>
+    <%= f.number_field :item_variety_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_id %><br>
+    <%= f.number_field :unit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :big_basket_url %><br>
+    <%= f.text_field :big_basket_url %>
+  </div>
+  <div class="field">
+    <%= f.label :hopcom_name %><br>
+    <%= f.text_field :hopcom_name %>
+  </div>
+  <div class="field">
+    <%= f.label :kmv_name %><br>
+    <%= f.text_field :kmv_name %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br>
+    <%= f.text_field :remark %>
+  </div>
+  <div class="field">
+    <%= f.label :error %><br>
+    <%= f.text_field :error %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

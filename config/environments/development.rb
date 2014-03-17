@@ -20,10 +20,24 @@ FnvApi::Application.configure do
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations
+  # commented to remove_db
   config.active_record.migration_error = :page_load
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  HOST = 'localhost:3000'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'aalgro.com',
+    user_name:            'mohitagg@gmail.com',
+    password:             '<password>',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end

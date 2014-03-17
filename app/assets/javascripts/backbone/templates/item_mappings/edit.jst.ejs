@@ -1,0 +1,35 @@
+<tr class="supplier-item-row">
+	<td class="supplier-items-header-name" rowspan="2"><%= name %></td>
+	<td class="supplier-items-header-variety" rowspan="1"><%= variety %></td>
+	<td class="supplier-items-header-units"><%= unit %></td>
+	<td class="supplier-items-header-price">
+		<input defaultvalue="10.01" value="10.01" type="text" disabled="disabled">
+		<div class="supplier-item-parameter-error">Error</div>
+	</td>
+	<td class="supplier-items-header-max-qty">
+		<input defaultvalue="" value="" type="text" disabled="disabled">
+		<div class="supplier-item-parameter-error">Error</div>
+	</td>
+	<td class="supplier-items-header-edit" data-item-id="111" data-item-variety-id="117" data-unit-id="101" id="supplier-item-111-117-101">
+		<i style="display: block;" class="supplier-item-edit-button fa fa-edit fa-lg" title="Edit Item"></i>
+		<div style="display: none;" class="supplier-item-edit-controls">
+			<span class="supplier-item-row-save">
+				<i class="fa fa-save fa-lg" title="Save Item"></i>
+			</span>
+			<span class="supplier-item-row-delete">
+				<i class="fa fa-trash-o fa-lg" title="Delete Item"></i>
+			</span>
+			<span class="supplier-item-row-cancel">
+				<i class="fa fa-times fa-lg" title="Cancel &amp; Return"></i>
+			</span>
+		</div>
+		<img style="display:none" class="supplier-item-local-loader" src="/assets/loader.gif">
+		<div class="supplier-item-confirm-delete">
+			<div class="supplier-item-confirm-delete-header">Delete ?</div>
+			<div class="supplier-item-confirm-delete-controls">
+				<div class="supplier-item-confirm-delete-yes">Yes</div>
+				<div class="supplier-item-confirm-delete-no">No</div>
+			</div>
+		</div>
+	</td>
+</tr>

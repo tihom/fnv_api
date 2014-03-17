@@ -1,0 +1,56 @@
+	<td class="supplier-items-header-name" rowspan="1"><%= item_name %></td>
+	<td class="supplier-items-header-units"><%= unit_name %></td>
+	<td class="supplier-items-header-variety" rowspan="1"><%= item_variety_name%></td>
+	<td class="supplier-items-header-price">
+		<%= item_price %>
+		<!-- button to update the price -->
+		<span class="supplier-item-row-update update-price">
+			<i class="fa fa-refresh fa-lg" title="Update Price"></i>
+		</span>	
+		<span class="supplier-item-row-updating updating-price">
+			<i class="fa fa-refresh fa-spin fa-lg" title="Updating"></i>
+		</span>	
+		<br/>
+		<div class="supplier-item-row-last-updated" data-time="<%= price_last_updated_at %>"> 
+			<span class="supplier-item-row-timeago">
+				<%= time_ago %> 
+			</span>
+		</div>
+		<div class="price-update-error-message error"></div>
+		
+	</td>
+	<td class="supplier-items-header-identifier">
+		<input defaultvalue="" class="item-identifier" value="<%= identifier %>" type="text" disabled="disabled">
+	</td>
+	<td class="supplier-items-header-unit-conversion">
+		<input defaultvalue="" class="item-unit-conversion" value="<%= unit_conversion %>" type="text" disabled="disabled">
+	</td>
+	<td class="supplier-items-header-edit" >
+		<i style="display: block;" class="edit-button fa fa-edit fa-lg " title="Edit Item"></i>
+		<div style="display: none;" class="edit-controls">
+			<span class="supplier-item-row-save save-item">
+				<i class="fa fa-save fa-lg" title="Save Item"></i>
+			</span>
+			<span class="supplier-item-row-delete destroy-item">
+				<i class="fa fa-trash-o fa-lg" title="Delete Item"></i>
+			</span>
+			<span class="supplier-item-row-cancel cancel-edit">
+				<i class="fa fa-times fa-lg" title="Cancel &amp; Return"></i>
+			</span>
+		</div>
+		<img style="display:none" class="local-loader" src="/assets/loader.gif">
+		<div class="error-message error"></div>
+
+		<div class="supplier-item-confirm-delete">
+			<div class="supplier-item-confirm-delete-header">Delete ?</div>
+			<div class="supplier-item-confirm-delete-controls">
+				<div class="supplier-item-confirm-delete-yes">Yes</div>
+				<div class="supplier-item-confirm-delete-no">No</div>
+			</div>
+		</div>
+	</td>
+
+
+
+					
+				

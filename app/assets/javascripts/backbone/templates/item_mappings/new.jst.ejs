@@ -1,0 +1,55 @@
+	<td class="item-header-name">
+		<div class="td-div">
+			<div class="sep-div">
+				<select class="new-item-name">
+					<option value='select'>Select</option>
+					</select>
+			</div>
+		</div>
+	</td>
+	<td class="item-header-units">
+		<div class="td-div">
+			<div class="sep-div">
+				<select class="new-item-unit" disabled="disabled">
+					<option value='select'>Select</option>
+					</select>
+			</div>
+		</div>
+	</td>
+	<td class="item-header-varieties">
+		<div class="td-div">
+			<select class="new-item-variety" disabled="disabled">
+				<option value='select'>Select</option>
+				</select>
+		</div>
+	</td>
+	
+	<td class="item-header-price">
+		<div class="td-div">
+			<!-- add btn to check the entries by getting the latest price -->
+		</div>
+	</td>
+
+	<td class="item-header-identifier">
+		<div class="td-div">
+			<input class="new-item-identifier" type="text" disabled="disabled" value="" />
+		</div>
+	</td>
+	<td class="item-header-unit-conv">
+		<div class="td-div">
+			<input class="new-item-unit-conversion" type="text"  disabled="disabled" value="<%= unit_conversion %>" />
+		</div>
+	</td>
+	<td class="item-header-edit">
+		<div class="td-div edit-controls">
+			<span class="supplier-item-row-save">
+				<i class="fa fa-save fa-lg" title="Save Item"></i>
+			</span>
+
+			<span class="supplier-item-row-cancel">
+				<i class="fa fa-times fa-lg" title="Cancel &amp; Return"></i>
+			</span>		
+		</div>
+		<img style="display:none" class="local-loader" src="/assets/loader.gif" />
+		<div class="error-message error"></div>
+	</td>	

@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery-2.0.3.min.js
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require underscore-1.5.1.min.js
+//= require backbone-1.0.0.min.js
+//= require backbone/fnv_api
+//= require item_mappings.js.coffee
+//removed to manually add files
+// require_tree .
