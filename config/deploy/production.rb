@@ -41,9 +41,16 @@ server "54.200.142.105", :app, :web, :db, :primary => true
 
 #If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
+	
+	desc "Symlink shared config files"
+	after "deploy:update_code" do
+	    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+	    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/initializers/sensitive_data.rb #{ current_path }/config/initializers/sensitive_data.rb"
+	end
+
+    task :start do ; end
+	task :stop do ; end
+	task :restart, :roles => :app, :except => { :no_release => true } do
+	   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+	end
 end
