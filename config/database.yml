@@ -18,7 +18,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+  adapter: mysql2
+  host: localhost
+  database: abhas_aalgro_store
+  username: abhas_aalgro
+  password: b2baalgro
+  pool: 10
   timeout: 5000
+  socket: /tmp/mysql.sock
