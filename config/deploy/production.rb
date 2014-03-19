@@ -1,6 +1,15 @@
 set :application, "fnv_api"
 set :repository,  "git@github.com:tihom/fnv_api.git"
 
+set :whenever_environment, defer { :production }
+set :whenever_command, "bundle exec whenever"
+# adding as using staging server for delayed job production soif not this  whenever will overwrite cron
+set :whenever_identifier, defer { "#{application}_#{stage}" }
+
+require "whenever/capistrano"
+
+
+
 set :deploy_to, "/var/fnv_api"
 set :scm, :git
 set :branch, "master"
@@ -30,11 +39,11 @@ server "54.200.142.105", :app, :web, :db, :primary => true
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+#If you are using Passenger mod_rails uncomment this:
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
