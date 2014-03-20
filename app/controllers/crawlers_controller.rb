@@ -1,7 +1,7 @@
 class CrawlersController < ApplicationController
 
 	def index
-    	@crawlers = Supplier.crawlers.select{|c| c[:supplier] }
+    	@crawlers = Supplier.crawlers
 	end
 
 	def items_list

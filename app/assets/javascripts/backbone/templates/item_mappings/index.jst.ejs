@@ -15,7 +15,11 @@
             </tbody>
         </table>
         <div id="add-save-more-items">
-            <div id="add-new-items" class="grey-btn" style="display: block;">Add Item</div>
+            <% if(supplier != null) { %>
+                <div id="add-new-items" class="grey-btn" style="display: block;">Add Item</div>
+            <% }else{ %>
+                <div class="grey-btn" style="display: block;">Supplier not found</div>
+            <% } %>   
             <% if(typeof items_list_url !== 'undefined') { %>
                 <div class="grey-btn" style="display: block;"><a href="<%= items_list_url %>" target="_blank"><%= id %> Item List</a></div>
             <% } %>    
