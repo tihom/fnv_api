@@ -36,8 +36,8 @@ FnvApi::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'aalgro.com',
-    user_name:            'mohitagg@gmail.com',
-    password:             '<password>',
+    user_name:            APP_CONFIG[:smtp_username],
+    password:             APP_CONFIG[:smtp_password],
     authentication:       'plain',
     enable_starttls_auto: true  }
 end

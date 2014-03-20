@@ -1,8 +1,8 @@
 
 <div id="home-tabs">
-	<img src="/assets/logo.png" id="aalgro-logo" />
+	<img src="<%= asset_path("logo.png")%>" id="aalgro-logo" />
 	<% @crawlers.each do |c| %>
-		<a class="inactive" href="#<%=c[:id]%>/mappings" data-id="<%=c[:id]%>"><%=c[:supplier].supplier_name%></a>
+		<a class="inactive" href="#<%=c[:id]%>/mappings" data-id="<%=c[:id]%>"><%=c.supplier_name%></a>
 	<% end %>
 </div>
 

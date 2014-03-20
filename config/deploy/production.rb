@@ -25,27 +25,14 @@ ssh_options[:keys] = ["/Users/mohitagg/Desktop/Aalgro/aalgro.pem"]
 set :rails_env, "production"
 
 server "54.200.142.105", :app, :web, :db, :primary => true
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-# role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-# role :app, "your app-server here"                          # This may be the same as your `Web` server
-# role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-# role :db,  "your slave db-server here"
-
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
 
 #If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-	
 	desc "Symlink shared config files"
-	after "deploy:update_code" do
-	    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-	    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/initializers/sensitive_data.rb #{ current_path }/config/initializers/sensitive_data.rb"
+	task :symlink_config_files do
+	    run "#{ try_sudo } ln -fs #{ deploy_to }/shared/config/database.yml #{ release_path }/config/database.yml"
+	    run "#{ try_sudo } ln -fs #{ deploy_to }/shared/config/app_config.yml #{ release_path }/config/app_config.yml"
 	end
 
     task :start do ; end
@@ -54,3 +41,5 @@ namespace :deploy do
 	   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 	end
 end
+
+before "deploy:assets:precompile", "deploy:symlink_config_files"

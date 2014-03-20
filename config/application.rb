@@ -1,6 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
  require 'rails/all'
+
+
+APP_CONFIG = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'app_config.yml'))[Rails.env].symbolize_keys!
 # coommented rails/all and added the following to remove_db
 # require "action_controller/railtie"
 # require "action_mailer/railtie"

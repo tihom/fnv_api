@@ -1,0 +1,7 @@
+development:
+  smtp_username: "testtihom"
+  smtp_password: "iamatester123"
+
+production:
+  smtp_username: "sales@aalgro.com"
+  smtp_password: "password"

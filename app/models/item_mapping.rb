@@ -30,8 +30,7 @@ class ItemMapping < ActiveRecord::Base
 
 		def find_by_crawler_id(crawler_id)
 			 supplier = Supplier.find_by_crawler_id(crawler_id)
-			 return self unless supplier
-    		 self.where(supplier_id: supplier.id) 
+    		 self.where(supplier_id: supplier.try(:id)) 
 		end
 
 	end
