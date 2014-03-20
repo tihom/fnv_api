@@ -9,3 +9,4 @@ window.FnvApi =
   Collections: {}
   Routers: {}
   Views: {}
+  Assets: {}

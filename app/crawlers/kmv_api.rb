@@ -3,6 +3,7 @@ require "rubygems"
 require "capybara"
 require "capybara/dsl"
 require "capybara-webkit"
+require "headless"
 # Need ot use capybara for kmv as usual methods did not work due to js form validation
 Capybara.run_server = false
 Capybara.current_driver = :webkit
@@ -91,9 +92,9 @@ module KmvApi
     # Capybara::ElementNotFound: Unable to find option "POTATAA"
   end
 
-  class DateWiseReport
+  class DateWiseReport < CapybaraNode
     include Capybara::DSL
-    
+      
     # fetch the report for given item name (name in caps e.g. AJWAN), month (full name e.g. JANUARY) and year (numeric e.g. 2014 )
     # if no valu is given the default value is selected 
     # item default is first option : AJWAN
@@ -102,20 +103,19 @@ module KmvApi
 
     # Will raise error if given item_name is not present in the list
     # will return blank array if item is present but no data is returned by kmv site
-    def initialize(item_name=nil, month=nil, year=nil)
-      visit('reports/DateWiseReport.aspx')
-      @item_name = item_name
-      select(item_name.upcase, :from => "_ctl0_content5_ddlcommodity") if item_name
-      select(month.upcase, :from => "_ctl0_content5_ddlmonth") if month
-      select(year.to_s, :from => "_ctl0_content5_ddlyear") if year
-      #select("AllMarkets", :from => "_ctl0_content5_ddlmarket") #default is all market so not needed
-      click_button "_ctl0_content5_viewreport" if  item_name || month || year
-      @doc = Nokogiri::HTML html
+
+    def visit_page(item_name=nil, month=nil, year=nil)
+        visit('reports/DateWiseReport.aspx')
+        @item_name = item_name
+        select(item_name.upcase, :from => "_ctl0_content5_ddlcommodity") if item_name
+        select(month.upcase, :from => "_ctl0_content5_ddlmonth") if month
+        select(year.to_s, :from => "_ctl0_content5_ddlyear") if year
+        #select("AllMarkets", :from => "_ctl0_content5_ddlmarket") #default is all market so not needed
+        click_button "_ctl0_content5_viewreport" if  item_name || month || year
+        @doc = Nokogiri::HTML html
     end
 
-    def doc
-      @doc
-    end
+
 
     def all_items
       all(:xpath, "//select[@id='_ctl0_content5_ddlcommodity']//option").map { |a| a.text}

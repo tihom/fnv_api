@@ -3,6 +3,7 @@ require "rubygems"
 require "capybara"
 require "capybara/dsl"
 require "capybara-webkit"
+require "headless"
 
 Capybara.run_server = false
 Capybara.current_driver = :webkit
@@ -110,22 +111,18 @@ module HopcomApi
 
 	end
 
-	class DateWiseReport
+	class DateWiseReport < CapybaraNode
 		include Capybara::DSL
 
-		def initialize(item_name=nil, month=nil, year=nil)
+		def visit_page(item_name=nil, month=nil, year=nil)
 			visit('AnalysisReport.aspx')
 			@item_name = item_name
-	     	select(month.capitalize, :from => "ctl00_LC_drop1") if month
-	     	select(year.to_s, :from => "ctl00_LC_drop2") if year
-	     	select(item_name, :from => "ctl00_LC_drop3") if item_name
-	    	click_button "ctl00_LC_but1" if  item_name || month || year
-	    	@doc = Nokogiri::HTML html
-	    end
-
-	    def doc
-	        @doc
-	    end
+		    select(month.capitalize, :from => "ctl00_LC_drop1") if month
+		    select(year.to_s, :from => "ctl00_LC_drop2") if year
+		    select(item_name, :from => "ctl00_LC_drop3") if item_name
+		    click_button "ctl00_LC_but1" if  item_name || month || year
+		    @doc = Nokogiri::HTML html
+		end
 
 	    def all_items
       		all(:xpath, "//select[@id='ctl00_LC_drop3']//option").map { |a| a.text}

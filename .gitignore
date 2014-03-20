@@ -12,7 +12,7 @@
 /db/*.sqlite3-journal
 
 # ignore migration files as the production db is not to be managed by rails app for now
-/db/*.rb
+/db/migrate/*.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

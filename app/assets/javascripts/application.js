@@ -15,6 +15,7 @@
 //= require underscore-1.5.1.min.js
 //= require backbone-1.0.0.min.js
 //= require backbone/fnv_api
+//= require backbone/assets
 //= require item_mappings.js.coffee
 //removed to manually add files
 // require_tree .

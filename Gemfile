@@ -43,7 +43,8 @@ gem "font-awesome-rails"
 #for suppliers item as it does not have primary keys
 gem 'composite_primary_keys', '=6.0.1'
 gem "exception_notification", "~> 4.0.1"
-gem 'whenever','0.9.2', :require => false
+gem 'whenever', '0.9.2', :require => false
+gem "headless", '1.0.1', :require => false
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
