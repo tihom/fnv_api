@@ -11,8 +11,8 @@ class Supplier < ActiveRecord::Base
 			@@crawlers ||= ([
 				{id: "BigBasket", api: "BigBasketApi", supplier_name: "Big Basket Online", unit_conversion: 1.0, identifier_name: "Big Basket Url", items_list_url: "http://bigbasket.com/cl/fruits-vegetables"},
 			 	{id: "Hopcoms", api: "HopcomApi", supplier_name: "Hopcoms Online", unit_conversion: 1.0, identifier_name: "Hopcom's Name", items_list_url: "http://www.hopcoms.kar.nic.in/CommodityList.aspx"}, 
-			 	{id: "Kmv", api: "KmvApi", supplier_name: "KMV Online", unit_conversion: 0.01, identifier_name: "Kmv Name", items_list_url: "http://krishimaratavahini.kar.nic.in/reports/DateWiseReport.aspx" }, #"/crawlers/Kmv/items_list"
-			 	{id: "Test", api: "TestApi", supplier_name: "Test Online", unit_conversion: 1, identifier_name: "Test Name", items_list_url: "#"}
+			 	{id: "Kmv", api: "KmvApi", supplier_name: "KMV Online", unit_conversion: 0.01, identifier_name: "Kmv Name", items_list_url: "http://krishimaratavahini.kar.nic.in/reports/DateWiseReport.aspx" } #"/crawlers/Kmv/items_list"
+			 	# {id: "Test", api: "TestApi", supplier_name: "Test Online", unit_conversion: 1, identifier_name: "Test Name", items_list_url: "#"}
 				].each{|c| c[:supplier] = Supplier.where(supplier_name: c[:supplier_name]).first })
 		end
 

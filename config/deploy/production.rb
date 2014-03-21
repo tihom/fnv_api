@@ -34,7 +34,7 @@ namespace :deploy do
 	    run "#{ try_sudo } ln -fs #{ deploy_to }/shared/config/database.yml #{ release_path }/config/database.yml"
 	    run "#{ try_sudo } ln -fs #{ deploy_to }/shared/config/app_config.yml #{ release_path }/config/app_config.yml"
 	    # linking the db folder to shared directory as db structure on production can be different
-	    run "#{ try_sudo } ln -fs #{ deploy_to }/shared/db #{ release_path }/db"
+	    #  run "#{ try_sudo } ln -fs #{ deploy_to }/shared/db #{ release_path }/"
 	end
 
     task :start do ; end

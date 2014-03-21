@@ -113,16 +113,20 @@ module HopcomApi
 
 	class DateWiseReport < CapybaraNode
 		include Capybara::DSL
+		
+		def initialize(item_name=nil, month=nil, year=nil)
+      		@site = "hopcoms"
+        	super      
+    	end
 
-		def visit_page(item_name=nil, month=nil, year=nil)
-			visit('AnalysisReport.aspx')
-			@item_name = item_name
-		    select(month.capitalize, :from => "ctl00_LC_drop1") if month
-		    select(year.to_s, :from => "ctl00_LC_drop2") if year
-		    select(item_name, :from => "ctl00_LC_drop3") if item_name
-		    click_button "ctl00_LC_but1" if  item_name || month || year
-		    @doc = Nokogiri::HTML html
-		end
+		# def visit_page(item_name=nil, month=nil, year=nil)
+		# 	visit('AnalysisReport.aspx')
+		#     select(month.capitalize, :from => "ctl00_LC_drop1") if month
+		#     select(year.to_s, :from => "ctl00_LC_drop2") if year
+		#     select(item_name, :from => "ctl00_LC_drop3") if item_name
+		#     click_button "ctl00_LC_but1" if  item_name || month || year
+		#     @doc = Nokogiri::HTML html
+		# end
 
 	    def all_items
       		all(:xpath, "//select[@id='ctl00_LC_drop3']//option").map { |a| a.text}

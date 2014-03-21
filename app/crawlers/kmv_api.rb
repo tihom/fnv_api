@@ -104,16 +104,19 @@ module KmvApi
     # Will raise error if given item_name is not present in the list
     # will return blank array if item is present but no data is returned by kmv site
 
-    def visit_page(item_name=nil, month=nil, year=nil)
-        visit('reports/DateWiseReport.aspx')
-        @item_name = item_name
-        select(item_name.upcase, :from => "_ctl0_content5_ddlcommodity") if item_name
-        select(month.upcase, :from => "_ctl0_content5_ddlmonth") if month
-        select(year.to_s, :from => "_ctl0_content5_ddlyear") if year
-        #select("AllMarkets", :from => "_ctl0_content5_ddlmarket") #default is all market so not needed
-        click_button "_ctl0_content5_viewreport" if  item_name || month || year
-        @doc = Nokogiri::HTML html
+    def initialize(item_name=nil, month=nil, year=nil)
+      @site = "kmv"
+      super      
     end
+    # def visit_page(item_name=nil, month=nil, year=nil)
+    #     visit('reports/DateWiseReport.aspx')
+    #     select(item_name.upcase, :from => "_ctl0_content5_ddlcommodity") if item_name
+    #     select(month.upcase, :from => "_ctl0_content5_ddlmonth") if month
+    #     select(year.to_s, :from => "_ctl0_content5_ddlyear") if year
+    #     #select("AllMarkets", :from => "_ctl0_content5_ddlmarket") #default is all market so not needed
+    #     click_button "_ctl0_content5_viewreport" if  item_name || month || year
+    #     @doc = Nokogiri::HTML html
+    # end
 
 
 
