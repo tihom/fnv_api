@@ -138,6 +138,7 @@ module KmvApi
 
     def rows
      @rows ||= data_table.xpath("tr")[1..-1]
+     #@rows ||= []
     end
 
     # should be equal to ["Market", "Date", "Variety", "Grade", "Arrivals", "Unit", "Min", "Max", "Modal"] 

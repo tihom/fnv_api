@@ -11,7 +11,7 @@ class CapybaraNode
 			
 			# running the capybara crawl as a script as within rails it was running into problems
 			# was showin broken pipe which could be due to forking
-			html = `ruby #{Rails.root}/lib/capybara_crawl.rb #{@site} #{headlesslly} #{item_name} #{month} #{year}`
+			html = `ruby #{Rails.root}/lib/capybara_crawl.rb #{@site} #{headlesslly} '#{item_name}' #{month} #{year}`
 			@doc = Nokogiri::HTML html.strip
 
             # headless = Rails.env.development? ? nil : Headless.new 
